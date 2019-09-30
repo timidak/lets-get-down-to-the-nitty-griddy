@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Let's get down to the nitty griddy 🧐</title>
+
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/typedigital_space.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? 'css/print/pdf.css'
+        : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+						# Let's get down to the nitty griddy 🧐
+					</textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ## $ whoami_
+            
+            Andreas Kottre 
+            
+            co-founder & dev bei [@typedigital_](twitter.com/typedigital_) 
+            
+            - Twitter: [@timidak_](twitter.com/timidak_)
+            - GitHub: [@timidak](github.com/timidak)
+            
+            <img style="border: none; box-shadow: none;" src="typedigital-logo.svg" height="50" />
+
+					</textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ## CSS Grid Layout! Aber was war davor?
+					</textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ### Was war davor?
+            - Tabellen
+            - floats
+            - positioning 
+            - inline-block
+            - flexbox
+					</textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+						## Was ist CSS Grid Layout a.k.a. Grid? 🤓
+					</textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ### Was ist CSS Grid Layout a.k.a. Grid? 🤓
+            - zweidimensionales rasterbasiertes Layoutsystem
+            - die Antwort auf die Layoutprobleme der letzten Jahrzehnte?
+					</textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ### Browser-Support
+            <img src="Bildschirmfoto 2019-09-26 um 20.16.48.png" />
+            _(siehe [caniuse](http://caniuse.com/#feat=css-grid))_
+					</textarea
+          >
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+            ## Terminologie
+					</textarea
+            >
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Grid Container VS Grid Item
+              <img style="border: none; box-shadow: none;" src="terms-grid.svg" />
+              <img style="border: none; box-shadow: none;" src="terms-grid-item.svg" />
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Grid Line
+              <img style="border: none; box-shadow: none;" src="terms-grid-line.svg" />
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Grid Track
+              <img style="border: none; box-shadow: none;" src="terms-grid-track.svg" />
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Grid Cell
+              <img style="border: none; box-shadow: none;" src="terms-grid-cell.svg" />
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Grid Area
+              <img style="border: none; box-shadow: none;" src="terms-grid-area.svg" />
+            </textarea>
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+            ## Grundlagen von Grid Containern
+					</textarea
+            >
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+            ### Grid Container definieren
+
+            ```css
+            .container {
+              display: grid | inline-grid;
+            }
+            ```
+					</textarea
+            >
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+            ### Template Spalten definieren
+
+            ```css
+            .container {
+              display: grid;
+              grid-template-columns: <track-size> 
+            }
+            ```
+					</textarea
+            >
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+            ### Template Spalten definieren (diesmal mit Einheiten 😅)
+
+            ```css
+            .container {
+              display: grid;
+              grid-template-columns: 500px 30% 1fr 2fr; 
+            }
+            ```
+					</textarea
+            >
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+            ### Was sind fr?
+
+            ```css
+            .container {
+              display: grid;
+              grid-template-columns: 500px 3fr 1fr 2fr; 
+            }
+            ```
+					</textarea
+            >
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+            ### Ein Beispiel-Grid
+
+            ```css
+            .container {
+              display: grid;
+              grid-template-columns: 3fr 1fr 2fr; 
+              grid-template-rows: 500px auto; 
+              grid-auto-flow: row; /* ~ flex-direction in flexbox */
+              grid-auto-row: 200px;
+              grid-gap: 20px;
+            }
+            ```
+					</textarea
+            >
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+            ### repeat() für's Definieren von Spalten
+
+            ```css
+            .container {
+              display: grid;
+              grid-template-columns: repeat(2, 3fr 1fr 2fr);
+              grid-template-rows: repeat(4, 1fr); 
+            }
+            ```
+					</textarea
+            >
+          </section>
+          <section
+            data-background-image="https://media.giphy.com/media/3o8dFn5CXJlCV9ZEsg/giphy.gif"
+          ></section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+                ## Grundlagen von Grid Items
+              </textarea
+            >
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Grid Item Sizing
+  
+              ```css
+              #item-1 {
+                grid-column: span 2;
+                grid-row: span 2;
+              }
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Grid Items platzieren und dimensionieren
+  
+              ```css
+              .item {
+                grid-column-start: <number> | <name> | auto;
+                grid-column-end: <number> | <name> | auto;
+                grid-row-start: <number> | <name> | auto;
+                grid-row-end: <number> | <name> | auto;
+              }
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Grid Items platzieren und dimensionieren
+  
+              ```css
+              #tada {
+                grid-column-start: 2;
+                grid-column-end: auto;
+              }
+              #lala {
+                grid-column-start: 2;
+                grid-column-end: 5;
+              }
+              /* und in kurz */
+              #haha {
+                grid-column: 2 / 5;
+              }
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Grid Items platzieren und dimensionieren
+  
+              ```css
+              #lala {
+                grid-column: 2 / span 5; 
+                /* startet bei 2 und ist 5 Zellen weit */
+              }
+              /* wie man ein Grid Item über die das ganze Grid legt? */
+              #biggie {
+                grid-column: 1 / -1;
+                /* oder */
+                grid-row: 1 / -1;
+              }
+              ```
+            </textarea>
+          </section>
+          <section
+            data-background-image="https://media.giphy.com/media/l4EpblDY4msVtKAOk/giphy.gif"
+          ></section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+                    ## Grundlagen von Grid Areas
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Benamen von Grid Areas
+  
+              ```css
+              .container {
+                display: grid;
+                grid-template-rows: 300px 300px 300px;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-areas: 	  "sidebar-1 content sidebar-2"
+                                        "sidebar-1 content sidebar-2"
+                                        "footer footer footer";
+              }
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Und das Ergebnis
+              <img style="border: none; box-shadow: none;" src="terms-grid-area-example.svg" height="500" />
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+                ### Und jetzt Items in die Grid Areas!
+    
+                ```css
+                .footer {
+                  grid-area: footer;
+                }
+                
+                .item1 {
+                  grid-area: sidebar-1;
+                }
+                
+                .item2 {
+                  grid-area: sidebar-2;
+                }
+                
+                .item3 {
+                  grid-area: content;
+                }
+                ```
+              </textarea
+            >
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+                  ### Andere Anordnung auf Mobile? Kein Problem!
+      
+                  ```css
+                  @media (max-width: 700px) {
+                    .container {
+                       grid-template-areas: 	"sidebar-1 sidebar-1 sidebar-2"
+                                               "content content content"
+                                              "footer footer footer"
+                    }
+                  }
+                  ```
+                </textarea
+            >
+          </section>
+          <section
+            data-background-image="https://media.giphy.com/media/xT77XWum9yH7zNkFW0/giphy.gif"
+          ></section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+                    ## Zentrieren mit Grid
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+                    ### Elemente eines Grid Containers zentrieren
+
+                    ```css
+                    .container {
+                      align-content: center;
+                      justify-content: center;
+                    }
+                    ```
+
+                    oder 
+
+                    ```css
+                    .container {
+                      place-content: center;
+                    }
+                    ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+                    ### Ein einzelnes Grid Item zentrieren
+
+                    ```css
+                    #item-1 {
+                      align-self: center;
+                      justify-self: center;
+                    }
+                    ```
+
+                    oder 
+                    
+                    ```css
+                    #item-1 {
+                      place-self: center;
+                    }
+                    ```
+            </textarea>
+          </section>
+          <section
+          data-background-image="https://media.giphy.com/media/11ISwbgCxEzMyY/giphy.gif"
+        ></section>
+        </section>
+        <section>
+            <section data-markdown>
+                <textarea data-template>
+                    <img style="border: none; box-shadow: none;" src="typedigital-logo.svg" height="75" />
+                    - Agentur spezialisiert auf Web- und Mobile-Projekte
+                    - Immer auf der Suche nach neuen Herausforderungen
+                    - kleines Team von 5 Leuten mit Büro im Kreis Augsburg
+                </textarea>
+              </section>
+        </section>
+        <section
+          data-background-image="https://media.giphy.com/media/yoJC2El7xJkYCadlWE/giphy.gif"
+        ></section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            callback: function() {
+              hljs.initHighlightingOnLoad();
+            }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
